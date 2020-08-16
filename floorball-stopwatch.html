@@ -150,8 +150,16 @@
 				<span class="watchdisplay" id="wd-b">00:00:00</span><div id="blink-b"></div>
 				<span class="counter" id="c-b">-</span> 
 			</div>
+			
+			<div class="divider"></div>
 
 		</div><!-- .wrap --> 
+
+ 
+			<span id="break-key" class="key">h</span> 
+			<div id="break-button" class="button">
+				<span class="button-text" id="">Break</span>
+			</div>
 
 		<script>// <![CDATA[
 
@@ -313,7 +321,16 @@
 				}
 			}
 
+			let globalBreakToggle = 0;
+			
 			hotkeys('h', function(event, handler) {
+				if(globalBreakToggle == 0) {
+					globalBreakToggle = 1;
+					document.getElementById('break-button').classList.add("break");
+				} else {
+					globalBreakToggle = 0;
+					document.getElementById('break-button').classList.remove("break");
+				}
 
 				globalBreak('watchQ', 'q', 'toggleQ', 'globalToggleQ', 'countQ');
 				globalBreak('watchW', 'w', 'toggleW', 'globalToggleW', 'countW');

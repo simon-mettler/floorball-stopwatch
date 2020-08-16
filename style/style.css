@@ -4,6 +4,10 @@ html {
 	color: #2d2d2d;
 }
 
+body {
+	margin: 0;
+}
+
 .player {
 	display: inline-block;
 	width: 18%;
@@ -92,4 +96,36 @@ html {
   -webkit-animation: blink 1s alternate infinite;
   -moz-animation: blink 1s alternate infinite;
   -ms-animation: blink 1s alternate infinite;
+}
+
+.button {
+	font-size: 1.5em;
+	background: #fff0f0;
+	border: 1px solid red;
+	margin: 30px;
+	padding: 21px 20px 17px 20px;
+	display: block;
+	border-radius: 5px;
+	box-shadow: 1px 0px 13px 0px rgba(0,0,0,0.13);
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	color: red;
+}
+
+#break-key {
+	font-size: 13px;
+	transform: translateY(-4px);
+	position: absolute;
+	left: 73px;
+	bottom: 100px;
+	text-align: center;
+}
+
+
+.break {
+	background: #ff4545;
+	border: 1px solid red;
+	color: white;
 }
