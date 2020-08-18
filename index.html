@@ -55,6 +55,10 @@
 				<span class="counter" id="c-t">-</span> 
 			</div>
 
+			<div class="line-control">
+				<span>Start</span>
+			</div>
+
 			<div class="divider"></div>
 
 			<div class="player">
@@ -164,13 +168,137 @@
 		<script>// <![CDATA[
 
 			/*
-			 * Function to control hotkey and stopwatch.
-			 * 
-			 * @param {string} watch Name of the stopwatch.
-			 * @param {string} hotkey Hotkey used to start/stop watch.
-			 * @param {string} counter Id of the counter element.
-			 * @param {string} toggle Id of the toggle element.
+			 * Simon Mettler
+			 * https://github.com/simon-mettler
 			 */
+
+			let watchParts = {
+				lineToggle: {
+					h: 0,
+					j: 0,
+					k: 0,
+					l: 0
+				},
+				watchToggle: {
+					q: 0,	w: 0, e: 0, r: 0, t: 0,
+					y: 0,	u: 0, i: 0, o: 0, p: 0,
+					a: 0,	s: 0, d: 0, f: 0, g: 0,
+					z: 0,	x: 0, c: 0, v: 0, b: 0,
+				},
+				watchCounter: {
+					q: 0,	w: 0, e: 0, r: 0, t: 0,
+					y: 0,	u: 0, i: 0, o: 0, p: 0,
+					a: 0,	s: 0, d: 0, f: 0, g: 0,
+					z: 0,	x: 0, c: 0, v: 0, b: 0,
+				}
+			};
+
+
+			function startWatch(watch, hotkey) {
+
+				if(watchParts.watchToggle[hotkey] == 0) {
+					event.preventDefault();
+					watch.start();
+					watchParts.watchToggle[hotkey] = 1;
+					document.getElementById('blink-' + hotkey).classList.add("blink");
+				}
+
+			}
+		
+			function stopWatch(watch, hotkey) {
+
+				if(watchParts.watchToggle[hotkey] == 1) {
+					event.preventDefault();
+					watch.stop();
+					watchParts.watchToggle[hotkey] = 0;
+					watchParts.watchCounter[hotkey] += 1;
+					document.getElementById('c-' + hotkey).innerHTML = watchParts.watchCounter[hotkey];
+					document.getElementById('blink-' + hotkey).classList.remove("blink");
+				}
+
+			}
+
+
+			hotkeys('h', function(event, handler){
+
+				if (watchParts.lineToggle.h == 0) {
+					watchParts.lineToggle.h = 1;
+					startWatch(watchQ, 'q');
+					startWatch(watchW, 'w');
+					startWatch(watchE, 'e');
+					startWatch(watchR, 'r');
+					startWatch(watchT, 't');
+				} else {
+					watchParts.lineToggle.h = 0;
+					stopWatch(watchQ, 'q');
+					stopWatch(watchW, 'w');
+					stopWatch(watchE, 'e');
+					stopWatch(watchR, 'r');
+					stopWatch(watchT, 't');
+				}
+
+			});
+
+			hotkeys('j', function(event, handler){
+
+				if (watchParts.lineToggle.j == 0) {
+					watchParts.lineToggle.j = 1;
+					startWatch(watchY, 'y');
+					startWatch(watchU, 'u');
+					startWatch(watchI, 'i');
+					startWatch(watchO, 'o');
+					startWatch(watchP, 'p');
+				} else {
+					watchParts.lineToggle.j = 0;
+					stopWatch(watchY, 'y');
+					stopWatch(watchU, 'u');
+					stopWatch(watchI, 'i');
+					stopWatch(watchO, 'o');
+					stopWatch(watchP, 'p');
+				}
+
+			});
+		
+			hotkeys('k', function(event, handler){
+
+				if (watchParts.lineToggle.k == 0) {
+					watchParts.lineToggle.k = 1;
+					startWatch(watchA, 'a');
+					startWatch(watchS, 's');
+					startWatch(watchD, 'd');
+					startWatch(watchF, 'f');
+					startWatch(watchG, 'g');
+				} else {
+					watchParts.lineToggle.k = 0;
+					stopWatch(watchA, 'a');
+					stopWatch(watchS, 's');
+					stopWatch(watchD, 'd');
+					stopWatch(watchF, 'f');
+					stopWatch(watchG, 'g');
+				}
+
+			});
+
+			hotkeys('l', function(event, handler){
+
+				if (watchParts.lineToggle.l == 0) {
+					watchParts.lineToggle.l = 1;
+					startWatch(watchZ, 'z');
+					startWatch(watchX, 'x');
+					startWatch(watchC, 'c');
+					startWatch(watchV, 'v');
+					startWatch(watchB, 'b');
+				} else {
+					watchParts.lineToggle.l = 0;
+					stopWatch(watchZ, 'z');
+					stopWatch(watchX, 'x');
+					stopWatch(watchC, 'c');
+					stopWatch(watchV, 'v');
+					stopWatch(watchB, 'b');
+				}
+
+			});
+
 			function hotkeyAction(watch, hotkey, counter, toggle) {
 
 				hotkeys(hotkey, function(event, handler){
@@ -323,7 +451,7 @@
 
 			let globalBreakToggle = 0;
 			
-			hotkeys('h', function(event, handler) {
+			hotkeys('m', function(event, handler) {
 				if(globalBreakToggle == 0) {
 					globalBreakToggle = 1;
 					document.getElementById('break-button').classList.add("break");
