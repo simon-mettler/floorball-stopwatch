@@ -17,7 +17,7 @@ let watchParts = {
 		y: 0,	u: 0, i: 0, o: 0, p: 0,
 		a: 0,	s: 0, d: 0, f: 0, g: 0,
 		z: 0,	x: 0, c: 0, v: 0, b: 0,
-		bp: 0
+		teams: 0
 	},
 	globalToggle: {
 		q: 0,	w: 0, e: 0, r: 0, t: 0,
@@ -310,4 +310,27 @@ createWatch('watchB', 'b');
 assignHotkey('watchB', 'b');
 
 
+// Team watch
+createWatch('watch1', '1');
+createWatch('watch2', '2');
+
+hotkeys('n', function(event, handler){
+
+	if(watchParts.watchToggle.teams == 0) {
+		event.preventDefault();
+		watch1.start();
+		watch2.stop();
+		watchParts.watchToggle.teams = 1;
+		document.getElementById('line-bp').innerHTML = '&#8592;';
+		document.getElementById('line-bp').classList.remove('ball-switch');
+	} else {
+		event.preventDefault();
+		watch2.start();
+		watch1.stop();
+		watchParts.watchToggle.teams = 0;
+		document.getElementById('line-bp').innerHTML = '&#8594;';
+		document.getElementById('line-bp').classList.add('ball-switch');
+	}
+
+});
 // ]]&gt;
