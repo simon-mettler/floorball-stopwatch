@@ -8,6 +8,11 @@ body {
 	margin: 0;
 }
 
+.wrap {
+	margin: 50px auto 0 auto;
+	max-width: 1400px;
+}
+
 .player {
 	display: inline-block;
 	width: 16%;
@@ -20,16 +25,28 @@ body {
 }
 
 .line-control {
-	width: 5%;
-	text-align: center;
-	border: 1px solid #b2f70f;
-	font-size: 1.5em;
-	background: #f2ffd4;
-	margin: 30px;
-	padding: 21px 20px 17px 20px;
-	border-radius: 5px;
 	display: inline-block;
+	cursor: pointer;
 }
+
+.line-control-txt {
+	text-align: center;
+	border: 1px solid #3b5302;
+	font-size: 1.5em;
+	background: #8cbf16;
+	margin: 5px;
+	padding: 21px 22px 17px 20px;
+	border-radius: 5px;
+	display: block;
+	color: #3b5302;
+}
+
+.line-stop {
+	color: #4f0505;
+	border: 1px solid #4f0505;
+	background: #ff3535;
+}
+
 .watchdisplay {
 	font-size: 1.5em;
 	background: white;
@@ -55,14 +72,23 @@ body {
 	display: inline-block;
 	height: 20px;
 	font-size: 0.8em;
-	line-height: 19px;
+	line-height: 20px;
 	border-radius: 2px;
 	transform: translateY(-3px);
 }
 
-.wrap {
-	margin: 50px auto 0 auto;
-	max-width: 1200px;
+.key-line {
+	color: white;
+	background-color: #b5b5b5;
+	width: 20px;
+	display: inline-block;
+	height: 20px;
+	font-size: 0.8em;
+	line-height: 20px;
+	border-radius: 2px;
+	transform: translateY(-3px);
+	text-align: center;
+	margin: 0 0 14px 39px;
 }
 
 .blink {
