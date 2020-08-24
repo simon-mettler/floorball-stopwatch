@@ -102,6 +102,17 @@ body {
 	margin: 0 0 14px 39px;
 }
 
+.hold {
+  width: 13px;
+  height: 13px;
+  background: #ffdd00;
+  border-radius: 10px;
+  margin: 0px 2px 3px 18px;
+	float: left;
+	transform: translateY(-38px);
+	box-shadow: 0px 0px 8px 5px rgba(255,221,0,0.3);
+}
+
 .blink {
   width: 13px;
   height: 13px;

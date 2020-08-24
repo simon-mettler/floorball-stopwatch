@@ -94,7 +94,8 @@ function pauseGlobal(watch, hotkey) {
 		watchParts.globalToggle[hotkey] = 1;
 		watchParts.watchCounter[hotkey] += 1;
 		document.getElementById('c-' + hotkey).innerHTML = watchParts.watchCounter[hotkey];
-		document.getElementById('blink-' + hotkey).classList.remove("blink");
+		document.getElementById('blink-' + hotkey).classList.remove('blink');
+		document.getElementById('blink-' + hotkey).classList.add('hold');
 
 	} else if(watchParts.globalToggle[hotkey] == 1) {
 
@@ -102,8 +103,8 @@ function pauseGlobal(watch, hotkey) {
 		watch.start();
 		watchParts.watchToggle[hotkey] = 1;
 		watchParts.globalToggle[hotkey] = 0;
-		document.getElementById('blink-' + hotkey).classList.add("blink");
-
+		document.getElementById('blink-' + hotkey).classList.add('blink');
+		document.getElementById('blink-' + hotkey).classList.remove('hold');
 	}
 
 }
