@@ -10,18 +10,27 @@ body {
 
 .wrap {
 	margin: 50px auto 0 auto;
-	max-width: 1400px;
+	max-width: 1200px;
 }
+/*
+@media screen and (max-width: 1440px){
+	.wrap {
+		transform: scale(.8);
+		max-width: unset;
+		margin: 0;
+	}
+}
+*/
 
 .player {
 	display: inline-block;
-	width: 16%;
+	width: 15%;
 	margin: 5px; 
 	text-align: center;
 } 
 
 .divider {
-	height: 40px;
+	height: 20px;
 }
 
 .line-control {
@@ -102,7 +111,7 @@ body {
   height: 13px;
   background: red;
   border-radius: 10px;
-  margin: 0px 2px 3px 24px;
+  margin: 0px 2px 3px 18px;
 	float: left;
 	transform: translateY(-38px);
 	box-shadow: 0px 0px 8px 5px rgba(245,3,3,0.3);
@@ -110,7 +119,7 @@ body {
 
 @-webkit-keyframes blink {
   0% {
-    opacity: 0.1;
+    opacity: 0.3;
   }
   100% {
     opacity: 1;
@@ -119,7 +128,7 @@ body {
 
 @-moz-keyframes blink {
   0% {
-    opacity: 0.1;
+    opacity: 0.3;
   }
   100% {
     opacity: 1;
@@ -128,7 +137,7 @@ body {
 
 @-ms-keyframes blink {
   0% {
-    opacity: 0.1;
+    opacity: 0.3;
   }
   100% {
     opacity: 1;
@@ -136,9 +145,9 @@ body {
 }
 
 .blink {
-  -webkit-animation: blink 1s alternate infinite;
-  -moz-animation: blink 1s alternate infinite;
-  -ms-animation: blink 1s alternate infinite;
+  -webkit-animation: blink .5s alternate infinite;
+  -moz-animation: blink .5s alternate infinite;
+  -ms-animation: blink .5s alternate infinite;
 }
 
 .button {
@@ -147,7 +156,6 @@ body {
 	border: 1px solid red;
 	margin: 30px;
 	padding: 21px 20px 17px 20px;
-	display: block;
 	border-radius: 5px;
 	box-shadow: 1px 0px 13px 0px rgba(0,0,0,0.13);
 	display: inline-block;
@@ -171,18 +179,11 @@ body {
 	background: #ff3535;
 }
 
-#break-key {
-	font-size: 13px;
-	transform: translateY(-4px);
-	position: absolute;
-	left: 73px;
-	bottom: 100px;
-	text-align: center;
+#key-gb {
+	margin-left: 91px;
 }
 
-
-.break {
-	background: #ff4545;
-	border: 1px solid red;
-	color: white;
+#pause {
+	margin-left: 113px;
+	width: 206px;
 }

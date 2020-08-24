@@ -51,7 +51,7 @@ function assignHotkey(watch, hotkey) {
 function createWatch(watch, hotkey) {
 	
 	window[watch] = new Stopwatch(	function(watch) {
-		document.getElementById('wd-' + hotkey).innerHTML = watch.toString() + "." + parseInt(watch.getElapsed().milliseconds/100);
+		document.getElementById('wd-' + hotkey).innerHTML = watch.toString();
 	}, 50);
 
 }
@@ -323,6 +323,8 @@ hotkeys('n', function(event, handler){
 		watchParts.watchToggle.teams = 1;
 		document.getElementById('line-bp').innerHTML = '&#8592;';
 		document.getElementById('line-bp').classList.remove('ball-switch');
+		document.getElementById('blink-bp1').classList.add("blink");
+		document.getElementById('blink-bp2').classList.remove("blink");
 	} else {
 		event.preventDefault();
 		watch2.start();
@@ -330,6 +332,8 @@ hotkeys('n', function(event, handler){
 		watchParts.watchToggle.teams = 0;
 		document.getElementById('line-bp').innerHTML = '&#8594;';
 		document.getElementById('line-bp').classList.add('ball-switch');
+		document.getElementById('blink-bp1').classList.remove("blink");
+		document.getElementById('blink-bp2').classList.add("blink");
 	}
 
 });
