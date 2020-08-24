@@ -192,22 +192,25 @@
 
 			<div class="player"></div>
 			<div class="player"></div>
+
 			<div class="player">
 				<span class="name">Team 1</span>
-				<span class="watchdisplay" id="wd-1">00:00:00</span><div id="blink-bp1"></div>
+				<span class="watchdisplay" id="wd-1">00:00:00</span><div id="blink-1"></div>
+				<span class="counter hide" id="c-1">-</span> 
 			</div>
 
-			<div class="line-control" onclick=" ">
+			<div class="line-control" onclick="ballposs()">
 				<span class="key-line" id="key-bp">n</span> 
 				<span class="line-control-txt" id="line-bp">&#8592;</span> 
 			</div>
 
 			<div class="player">
 				<span class="name">Team 2</span>
-				<span class="watchdisplay" id="wd-2">00:00:00</span><div id="blink-bp2"></div>
+				<span class="watchdisplay" id="wd-2">00:00:00</span><div id="blink-2"></div>
+				<span class="counter hide" id="c-2">-</span> 
 			</div>
 
-			<div id="pause" class="line-control" onclick=" ">
+			<div id="pause" class="line-control" onclick="globalPause()">
 				<span class="key-line" id="key-gb">m</span> 
 				<span class="line-control-txt" id="">pause game</span>
 			</div>

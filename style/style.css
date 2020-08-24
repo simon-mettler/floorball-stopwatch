@@ -8,19 +8,14 @@ body {
 	margin: 0;
 }
 
+.hide {
+	display: none;
+}
+
 .wrap {
 	margin: 50px auto 0 auto;
 	max-width: 1200px;
 }
-/*
-@media screen and (max-width: 1440px){
-	.wrap {
-		transform: scale(.8);
-		max-width: unset;
-		margin: 0;
-	}
-}
-*/
 
 .player {
 	display: inline-block;
