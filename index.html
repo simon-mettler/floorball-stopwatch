@@ -50,12 +50,12 @@
 				<span class="counter" id="c-t">-</span> 
 			</div>
 
-			<div class="line-control" onclick="starth()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 1) { holdh();	} else { starth(); }">
 				<span class="key-line">h</span> 
 				<span class="line-control-txt">start</span> 
 			</div>
 
-			<div class="line-control" onclick="stoph()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 1) { discardh(); } else {	stoph(); }">
 				<span class="key-line">H</span> 
 				<span class="line-control-txt line-stop">stop</span> 
 			</div>
@@ -92,12 +92,12 @@
 				<span class="counter" id="c-p">-</span> 
 			</div>
 
-			<div class="line-control" onclick="startj()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 1) { holdj();	} else { startj(); }">
 				<span class="key-line">j</span> 
 				<span class="line-control-txt">start</span> 
 			</div>
 
-			<div class="line-control" onclick="stopj()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 1) { discardj(); } else {	stopj(); }">
 				<span class="key-line">J</span> 
 				<span class="line-control-txt line-stop">stop</span> 
 			</div>
@@ -134,12 +134,12 @@
 				<span class="counter" id="c-g">-</span> 
 			</div>
 
-			<div class="line-control" onclick="startk()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 1) { holdk();	} else { startk(); }">
 				<span class="key-line">k</span> 
 				<span class="line-control-txt">start</span> 
 			</div>
 
-			<div class="line-control" onclick="stopk()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 1) { discardk(); } else {	stopk(); }">
 				<span class="key-line">K</span> 
 				<span class="line-control-txt line-stop">stop</span> 
 			</div>
@@ -176,12 +176,12 @@
 				<span class="counter" id="c-b">-</span> 
 			</div>
 
-			<div class="line-control" onclick="startl()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 1) { holdl();	} else { startl(); }">
 				<span class="key-line">l</span> 
 				<span class="line-control-txt">start</span> 
 			</div>
 
-			<div class="line-control" onclick="stopl()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 1) { discardl(); } else {	stopl(); }">
 				<span class="key-line">L</span> 
 				<span class="line-control-txt line-stop">stop</span> 
 			</div>
@@ -199,7 +199,7 @@
 				<span class="counter hide" id="c-1">-</span> 
 			</div>
 
-			<div class="line-control" onclick="ballposs()">
+			<div class="line-control" onclick="if(watchParts.pauseToggle.all == 0) { ballposs(); }">
 				<span class="key-line" id="key-bp">n</span> 
 				<span class="line-control-txt" id="line-bp">&#8592;</span> 
 			</div>
