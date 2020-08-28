@@ -26,13 +26,6 @@ let watchParts = {
 		z: 0,	x: 0, c: 0, v: 0, b: 0,
 		1: 0, 2: 0, all: 0
 	},
-	pauseSwitch: {
-		q: 0,	w: 0, e: 0, r: 0, t: 0,
-		y: 0,	u: 0, i: 0, o: 0, p: 0,
-		a: 0,	s: 0, d: 0, f: 0, g: 0,
-		z: 0,	x: 0, c: 0, v: 0, b: 0,
-		1: 0, 2: 0, all: 0
-	},
 	watchCounter: {
 		q: 0,	w: 0, e: 0, r: 0, t: 0,
 		y: 0,	u: 0, i: 0, o: 0, p: 0,
@@ -52,12 +45,13 @@ function assignHotkey(watch, hotkey) {
 				discardWatch(window[watch], hotkey)
 			}
 		} else {
-		if(watchParts.watchToggle[hotkey] == 0) {
-			startWatch(window[watch], hotkey)
-		} else {
-			stopWatch(window[watch], hotkey)
+			if(watchParts.watchToggle[hotkey] == 0) {
+				startWatch(window[watch], hotkey)
+			} else {
+				stopWatch(window[watch], hotkey)
+			}
 		}
-		}
+
 	});
 
 }
@@ -117,11 +111,13 @@ function discardWatch(watch, hotkey) {
 		watchParts.watchCounter[hotkey] += 1;
 		document.getElementById('c-' + hotkey).innerHTML = watchParts.watchCounter[hotkey];
 		document.getElementById('blink-' + hotkey).classList.remove('hold');
+
 }
 
 function pauseGlobal(watch, hotkey) {
+
 	if(watchParts.watchToggle[hotkey] == 1 && watchParts.pauseToggle.all == 1 ) {
-		console.log('------ xxx ------');
+
 		watchParts.watchToggle[hotkey] = 0;
 		event.preventDefault();
 		watch.stop();
@@ -132,19 +128,20 @@ function pauseGlobal(watch, hotkey) {
 		document.getElementById('blink-' + hotkey).classList.add('hold');
 
 	} else if(watchParts.pauseToggle[hotkey] == 1) {
-		console.log('------ XXX ------');
+
 		event.preventDefault();
 		watch.start();
 		watchParts.watchToggle[hotkey] = 1;
 		watchParts.pauseToggle[hotkey] = 0;
 		document.getElementById('blink-' + hotkey).classList.add('blink');
 		document.getElementById('blink-' + hotkey).classList.remove('hold');
+
 	}
 
 }
 
 
-// Start/Stop Line h
+// Line h
 function starth() {
 	startWatch(watchQ, 'q');
 	startWatch(watchW, 'w');
@@ -194,7 +191,7 @@ hotkeys('shift+h', function(event, handler){
 });
 
 
-// Start/Stop Line j
+// Line j
 function startj() {
 	startWatch(watchY, 'y');
 	startWatch(watchU, 'u');
@@ -244,7 +241,7 @@ hotkeys('shift+j', function(event, handler){
 });
 
 
-// Start/Stop Line k
+// Line k
 function startk() {
 	startWatch(watchA, 'a');
 	startWatch(watchS, 's');
@@ -294,7 +291,7 @@ hotkeys('shift+k', function(event, handler){
 });
 
 
-// Start/Stop Line l
+// Line l
 function startl() {
 	startWatch(watchZ, 'z');
 	startWatch(watchX, 'x');
@@ -344,7 +341,7 @@ hotkeys('shift+l', function(event, handler){
 });
 
 
-// Global pause
+// Pause game 
 function globalPause() {
 
 	if(watchParts.pauseToggle.all == 0) {
@@ -388,6 +385,10 @@ hotkeys('m', function(event, handler){
 	globalPause();
 });
 
+
+/*
+ * Create watches and assign hotkeys.
+ */
 
 // Line h
 createWatch('watchQ', 'q');
@@ -463,31 +464,32 @@ createWatch('watch2', '2');
 
 function ballposs() {
 
-		if(watchParts.pauseToggle.all == 0) {
-	if(watchParts.watchToggle.teams == 0) {
-		event.preventDefault();
-		watch1.start();
-		watch2.stop();
-		watchParts.watchToggle.teams = 1;
-		watchParts.watchToggle['1'] = 1;
-		watchParts.watchToggle['2'] = 0;
-		document.getElementById('line-bp').innerHTML = '&#8592;';
-		document.getElementById('line-bp').classList.remove('ball-switch');
-		document.getElementById('blink-1').classList.add('blink');
-		document.getElementById('blink-2').classList.remove('blink');
-	} else {
-		event.preventDefault();
-		watch2.start();
-		watch1.stop();
-		watchParts.watchToggle.teams = 0;
-		watchParts.watchToggle['1'] = 0;
-		watchParts.watchToggle['2'] = 1;
-		document.getElementById('line-bp').innerHTML = '&#8594;';
-		document.getElementById('line-bp').classList.add('ball-switch');
-		document.getElementById('blink-1').classList.remove('blink');
-		document.getElementById('blink-2').classList.add('blink');
-	}
+	if(watchParts.pauseToggle.all == 0) {
+		if(watchParts.watchToggle.teams == 0) {
+			event.preventDefault();
+			watch1.start();
+			watch2.stop();
+			watchParts.watchToggle.teams = 1;
+			watchParts.watchToggle['1'] = 1;
+			watchParts.watchToggle['2'] = 0;
+			document.getElementById('line-bp').innerHTML = '&#8592;';
+			document.getElementById('line-bp').classList.remove('ball-switch');
+			document.getElementById('blink-1').classList.add('blink');
+			document.getElementById('blink-2').classList.remove('blink');
+		} else {
+			event.preventDefault();
+			watch2.start();
+			watch1.stop();
+			watchParts.watchToggle.teams = 0;
+			watchParts.watchToggle['1'] = 0;
+			watchParts.watchToggle['2'] = 1;
+			document.getElementById('line-bp').innerHTML = '&#8594;';
+			document.getElementById('line-bp').classList.add('ball-switch');
+			document.getElementById('blink-1').classList.remove('blink');
+			document.getElementById('blink-2').classList.add('blink');
 		}
+	}
+
 }
 
 hotkeys('n', function(event, handler){

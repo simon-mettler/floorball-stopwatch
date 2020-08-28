@@ -1,3 +1,2 @@
 ## Floorball Stopwatch
 
-WIP
